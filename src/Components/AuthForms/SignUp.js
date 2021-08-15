@@ -2,9 +2,9 @@ import React from "react";
 
 const SignUp = () => {
   return (
-    <section>
+    <div>
       <h1>Sign Up Form</h1>
-    </section>
+    </div>
   );
 };
 

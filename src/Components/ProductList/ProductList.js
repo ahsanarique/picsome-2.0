@@ -3,9 +3,9 @@ import ProductCard from "../ProductCard/ProductCard";
 
 const ProductList = () => {
   return (
-    <section>
+    <div>
       <h1>Product List</h1>
-    </section>
+    </div>
   );
 };
 

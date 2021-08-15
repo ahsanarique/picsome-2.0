@@ -5,6 +5,7 @@ import HomePage from "./Pages/HomePage/HomePage";
 import AuthPage from "./Pages/AuthPage/AuthPage";
 import ProductListPage from "./Pages/ProductListPage/ProductListPage";
 import ProductDetailsPage from "./Pages/ProductDetailsPage/ProductDetailPage";
+import CartPage from "./Pages/CartPage/CartPage";
 import Footer from "./Components/Footer/Footer";
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/productListPage">
             <ProductListPage />
+          </Route>
+          <Route path="/cartPage">
+            <CartPage />
           </Route>
           <Route path="/productDetailsPage">
             <ProductDetailsPage />
