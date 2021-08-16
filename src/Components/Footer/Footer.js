@@ -43,7 +43,7 @@ const Footer = () => {
         <div className="lg:col-span-3 md:col-span-6 col-span-12">
           <p className="text-md mb-4">Thank You</p>
 
-          <p>
+          <p className="text-sm">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae
             blanditiis iste maiores nesciunt laudantium eius odio, tempore vel
             laboriosam est!
@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
       </div>
       <p className="text-sm text-center mt-16">
-        Copyright {year}, All rights reserved
+        Copyright © {year}, All rights reserved
       </p>
     </footer>
   );

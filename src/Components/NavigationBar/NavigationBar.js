@@ -72,7 +72,7 @@ const NavigationBar = () => {
   );
 
   const smallNavLinkStyle =
-    "mb-8 text-lg text-gray-700 border-2 w-1/2 border-gray-700 hover:text-white hover:bg-pink mx-auto py-3 px-6 rounded-full text-xl";
+    "mb-8 text-lg bg-lightBlue text-gray-700 border-2 w-1/2 border-gray-700 hover:bg-blue mx-auto py-3 px-6 rounded-full text-xl";
 
   return (
     <section className="sticky top-0 font-poppins">
