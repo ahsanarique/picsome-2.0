@@ -21,10 +21,10 @@ const NavigationBar = () => {
     const current = ref.current;
 
     if (show) {
-      current?.classList.remove("hidden");
+      current.classList.remove("hidden");
     }
 
-    return () => current?.classList.add("hidden");
+    return () => current.classList.add("hidden");
   }, [show]);
 
   const handleScroll = () => {
@@ -111,7 +111,7 @@ const NavigationBar = () => {
       >
         <div className="flex justify-between items-center border-b border-gray-700 border-opacity-20 py-4">
           <div className="ml-5">
-            <Link to="/" className="text-xl">
+            <Link onClick={() => setShow(!show)} to="/" className="text-xl">
               Pic Some
             </Link>
           </div>
