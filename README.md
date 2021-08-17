@@ -6,9 +6,9 @@
 
 - Javascript
 - React
-- React-Redux
+- Context API
 - Tailwind CSS
 - React Router
 - React Hook Form
-- Pixbay API
+- Pixabay API: https://pixabay.com/api/docs/
 - Netlify Deployment

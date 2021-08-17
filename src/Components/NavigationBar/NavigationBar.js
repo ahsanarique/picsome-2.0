@@ -7,10 +7,10 @@ const NavigationBar = () => {
   const [show, setShow] = useState(false);
   const ref = useRef(null);
 
-  const [navBg, setNavBg] = useState("bg-transparent");
-  const [navTextColor, setNavTextColor] = useState("text-white");
-  const [menuBorder, setMenuBorder] = useState("border-white");
-  const [menuButtonColor, setMenuButtonColor] = useState("white");
+  const [navBg, setNavBg] = useState("bg-lightBlue");
+  const [navTextColor, setNavTextColor] = useState("text-gray-700");
+  const [menuBorder, setMenuBorder] = useState("border-gray-700");
+  const [menuButtonColor, setMenuButtonColor] = useState("gray");
   const [barShadow, setBarShadow] = useState("");
 
   // icons
@@ -35,7 +35,7 @@ const NavigationBar = () => {
       setMenuButtonColor("white");
       setBarShadow("shadow-lg");
     } else {
-      setNavBg("bg-transparent");
+      setNavBg("bg-lightBlue");
       setNavTextColor("text-gray-700");
       setMenuBorder("border-gray-700");
       setMenuButtonColor("gray");
@@ -75,7 +75,7 @@ const NavigationBar = () => {
     "mb-8 text-lg bg-lightBlue text-gray-700 border-2 w-1/2 border-gray-700 hover:bg-blue mx-auto py-3 px-6 rounded-full text-xl";
 
   return (
-    <section className="sticky top-0 font-poppins">
+    <section className="sticky top-0 font-poppins z-50">
       <nav
         className={`${navBg} ${navTextColor} ${barShadow} flex lg:justify-around justify-between items-center border-b border-opacity-20 py-4`}
       >

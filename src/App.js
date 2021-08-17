@@ -26,7 +26,7 @@ function App() {
           <Route path="/cartPage">
             <CartPage />
           </Route>
-          <Route path="/productDetailsPage">
+          <Route path="/productDetailsPage=:id">
             <ProductDetailsPage />
           </Route>
         </Switch>

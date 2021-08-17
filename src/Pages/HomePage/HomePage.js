@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../Context/Context";
 import ImageSlider from "../../Components/ImageSlider/ImageSlider";
-import ProductList from "../../Components/ProductList/ProductList";
+import MostPopularProducts from "../../Components/MostPopularProducts/MostPopularProducts";
 
 const HomePage = () => {
-  return <section></section>;
+  const { popularImg } = useContext(Context);
+  const imgSet = popularImg.slice(0, 4);
+
+  return (
+    <section>
+      <ImageSlider imgSet={imgSet} />
+      <MostPopularProducts />
+    </section>
+  );
 };
 
 export default HomePage;
