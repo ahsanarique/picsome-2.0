@@ -4,8 +4,8 @@ import ImageSlider from "../../Components/ImageSlider/ImageSlider";
 import MostPopularProducts from "../../Components/MostPopularProducts/MostPopularProducts";
 
 const HomePage = () => {
-  const { popularImg } = useContext(Context);
-  const imgSet = popularImg.slice(0, 4);
+  const { homeImgList } = useContext(Context);
+  const imgSet = homeImgList.slice(0, 4);
 
   return (
     <section>

@@ -2,9 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
+import Search from "../Search/Search";
 
 const NavigationBar = () => {
-  const [show, setShow] = useState(false);
+  const [showNav, setShowNav] = useState(false);
   const ref = useRef(null);
 
   const [navBg, setNavBg] = useState("bg-lightBlue");
@@ -20,12 +21,12 @@ const NavigationBar = () => {
   useEffect(() => {
     const current = ref.current;
 
-    if (show) {
+    if (showNav) {
       current.classList.remove("hidden");
     }
 
     return () => current.classList.add("hidden");
-  }, [show]);
+  }, [showNav]);
 
   const handleScroll = () => {
     if (window.scrollY > 20) {
@@ -51,7 +52,7 @@ const NavigationBar = () => {
 
   const navButton = (
     <button
-      onClick={() => setShow(!show)}
+      onClick={() => setShowNav(!showNav)}
       className={`mobile-menu-button p-4 border rounded-lg mr-5 ${menuBorder}`}
     >
       <svg
@@ -84,6 +85,7 @@ const NavigationBar = () => {
             Pic Some
           </Link>
         </div>
+
         <div className="lg:block hidden">
           <Link to="/" className="mr-4">
             Home
@@ -93,7 +95,8 @@ const NavigationBar = () => {
           </Link>
         </div>
 
-        <div className="flex justify-around">
+        <div className="flex justify-around items-center">
+          <Search setShowNav={setShowNav} />
           <Link to="/cartPage" className="lg:block hidden mx-4 text-xl">
             {cartIcon}
           </Link>
@@ -111,13 +114,18 @@ const NavigationBar = () => {
       >
         <div className="flex justify-between items-center border-b border-gray-700 border-opacity-20 py-4">
           <div className="ml-5">
-            <Link onClick={() => setShow(!show)} to="/" className="text-xl">
+            <Link
+              onClick={() => setShowNav(!showNav)}
+              to="/"
+              className="text-xl"
+            >
               Pic Some
             </Link>
           </div>
+          <Search setShowNav={setShowNav} />
           <div>
             <button
-              onClick={() => setShow(!show)}
+              onClick={() => setShowNav(!showNav)}
               className={`mobile-menu-button p-4 border border-gray-700 rounded-lg mr-5`}
             >
               <svg
@@ -140,28 +148,28 @@ const NavigationBar = () => {
 
         <div className="flex flex-col text-center my-16">
           <Link
-            onClick={() => setShow(!show)}
+            onClick={() => setShowNav(!showNav)}
             to="/"
             className={smallNavLinkStyle}
           >
             Home
           </Link>
           <Link
-            onClick={() => setShow(!show)}
-            to="/products"
+            onClick={() => setShowNav(!showNav)}
+            to="/productListPage"
             className={smallNavLinkStyle}
           >
             Products
           </Link>
           <Link
-            onClick={() => setShow(!show)}
+            onClick={() => setShowNav(!showNav)}
             to="/cartPage"
             className={smallNavLinkStyle}
           >
             {cartIcon}
           </Link>
           <Link
-            onClick={() => setShow(!show)}
+            onClick={() => setShowNav(!showNav)}
             to="/authPage"
             className={smallNavLinkStyle}
           >

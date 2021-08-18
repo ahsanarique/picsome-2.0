@@ -4,7 +4,8 @@ import axios from "axios";
 const Context = React.createContext(null);
 
 const ContextProvider = ({ children }) => {
-  const [popularImg, setPopularImg] = useState([]);
+  const [imgList, setImgList] = useState([]);
+  const [homeImgList, setHomeImgList] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loginStatus, setLoginStatus] = useState(false);
 
@@ -18,13 +19,21 @@ const ContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const url = `https://pixabay.com/api/?key=22966378-58fca9bf9b8bdf03001525418&q=${searchQuery}&image_type=photo&pretty=true`;
+    const url = `https://pixabay.com/api/?key=22966378-58fca9bf9b8bdf03001525418&image_type=photo&pretty=true&per_page=12&orientation=horizontal`;
 
-    getImages(url, setPopularImg);
+    getImages(url, setHomeImgList);
+  }, []);
+
+  useEffect(() => {
+    const url = `https://pixabay.com/api/?key=22966378-58fca9bf9b8bdf03001525418&q=${searchQuery}&image_type=photo&pretty=true&per_page=36&orientation=horizontal`;
+
+    getImages(url, setImgList);
   }, [searchQuery]);
 
   return (
-    <Context.Provider value={{ popularImg, setSearchQuery, loginStatus }}>
+    <Context.Provider
+      value={{ imgList, homeImgList, searchQuery, setSearchQuery, loginStatus }}
+    >
       {children}
     </Context.Provider>
   );

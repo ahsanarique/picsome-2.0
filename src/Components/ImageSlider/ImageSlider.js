@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../Context/Context";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -9,6 +10,8 @@ import SwiperCore, { Autoplay, Navigation } from "swiper/core";
 SwiperCore.use([Autoplay, Navigation]);
 
 const ImageSlider = ({ imgSet }) => {
+  const { setSearchQuery } = useContext(Context);
+
   const imgHeight = {
     maxHeight: "50vh",
   };
@@ -16,7 +19,9 @@ const ImageSlider = ({ imgSet }) => {
   const swiperTextBg = (index) => {
     if ((index + 1) % 2 !== 0) {
       return "opacity-pink";
-    } else return "opacity-blue";
+    } else {
+      return "opacity-blue";
+    }
   };
 
   return (
@@ -37,6 +42,7 @@ const ImageSlider = ({ imgSet }) => {
               src={img.largeImageURL}
               alt=""
             />
+
             <div
               className={`z-40 ${swiperTextBg(
                 i
@@ -48,7 +54,18 @@ const ImageSlider = ({ imgSet }) => {
                 Excepturi exercitationem atque voluptatem voluptatum quas nam
                 eum, laborum corrupti ipsam accusantium.
               </p>
-              <p className="text-3xl">SHOP NOW!</p>
+              <Link to={`/productListPage`}>
+                <p
+                  onClick={() => setSearchQuery(img.tags)}
+                  className={`text-2xl inline border px-5 py-1 rounded-full border-gray-900 ${
+                    (i + 1) % 2 !== 0
+                      ? "hover:bg-blue hover:opacity-70"
+                      : "hover:bg-pink hover:opacity-70"
+                  }`}
+                >
+                  SHOP NOW!
+                </p>
+              </Link>
             </div>
           </SwiperSlide>
         ))}
