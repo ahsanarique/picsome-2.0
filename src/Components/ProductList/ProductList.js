@@ -1,10 +1,26 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Context } from "../../Context/Context";
 import ProductCard from "../ProductCard/ProductCard";
 import "../ImageSlider/styles.css";
 
 const ProductList = () => {
-  const { imgList, searchQuery } = useContext(Context);
+  const { imgList, searchQuery, itemCount, setItemCount } = useContext(Context);
+
+  useEffect(() => {
+    const infiniteScroll = () => {
+      if (
+        itemCount <= 200 &&
+        window.innerHeight + window.pageYOffset >=
+          document.body.offsetHeight - 2
+      ) {
+        setItemCount((prev) => prev + 20);
+      }
+    };
+
+    window.addEventListener("scroll", infiniteScroll);
+
+    return () => window.removeEventListener("scroll", infiniteScroll);
+  }, [itemCount, setItemCount]);
 
   return (
     <div className="grid grid-cols-12 gap-2 my-12 mx-5">

@@ -7,12 +7,14 @@ const Search = ({ setShowNav }) => {
   const searchIcon = <FontAwesomeIcon icon={faSearch} />;
 
   return (
-    <div
-      onClick={() => setShowNav(false)}
-      className="text-xl border-2 border-gray-700 w-12 h-12 rounded-full flex justify-center items-center mx-2 hover:shadow-lg hover:bg-blue"
-    >
-      <Link to={`/productListPage`}>{searchIcon}</Link>
-    </div>
+    <Link to="/productListPage">
+      <div
+        onClick={() => setShowNav(false)}
+        className="text-xl border-2 border-gray-700 w-12 h-12 rounded-full flex justify-center items-center mx-2 hover:shadow-lg hover:bg-blue"
+      >
+        {searchIcon}
+      </div>
+    </Link>
   );
 };
 

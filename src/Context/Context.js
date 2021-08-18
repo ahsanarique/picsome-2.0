@@ -5,6 +5,7 @@ const Context = React.createContext(null);
 
 const ContextProvider = ({ children }) => {
   const [imgList, setImgList] = useState([]);
+  const [itemCount, setItemCount] = useState(30);
   const [homeImgList, setHomeImgList] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loginStatus, setLoginStatus] = useState(false);
@@ -25,14 +26,22 @@ const ContextProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    const url = `https://pixabay.com/api/?key=22966378-58fca9bf9b8bdf03001525418&q=${searchQuery}&image_type=photo&pretty=true&per_page=36&orientation=horizontal`;
+    const url = `https://pixabay.com/api/?key=22966378-58fca9bf9b8bdf03001525418&q=${searchQuery}&image_type=photo&pretty=true&per_page=${itemCount}&orientation=horizontal`;
 
     getImages(url, setImgList);
-  }, [searchQuery]);
+  }, [searchQuery, itemCount]);
 
   return (
     <Context.Provider
-      value={{ imgList, homeImgList, searchQuery, setSearchQuery, loginStatus }}
+      value={{
+        imgList,
+        homeImgList,
+        searchQuery,
+        setSearchQuery,
+        itemCount,
+        setItemCount,
+        loginStatus,
+      }}
     >
       {children}
     </Context.Provider>
