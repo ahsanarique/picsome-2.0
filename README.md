@@ -26,7 +26,7 @@
 
 ### Product Page with infinite scrolling:
 
-![product page](/screenshots/products/png)
+![product page](/screenshots/products.png)
 
 ### Single Product Page:
 
