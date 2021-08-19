@@ -9,6 +9,8 @@ const ContextProvider = ({ children }) => {
   const [homeImgList, setHomeImgList] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [loginStatus, setLoginStatus] = useState(false);
+  const [imgPrice, setImgPrice] = useState(5);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   async function getImages(searchUrl, setState) {
     try {
@@ -20,13 +22,13 @@ const ContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const url = `https://pixabay.com/api/?key=22966378-58fca9bf9b8bdf03001525418&image_type=photo&pretty=true&per_page=12&orientation=horizontal`;
+    const url = `https://pixabay.com/api/?key=22966378-58fca9bf9b8bdf03001525418&pretty=true&per_page=12&orientation=horizontal`;
 
     getImages(url, setHomeImgList);
   }, []);
 
   useEffect(() => {
-    const url = `https://pixabay.com/api/?key=22966378-58fca9bf9b8bdf03001525418&q=${searchQuery}&image_type=photo&pretty=true&per_page=${itemCount}&orientation=horizontal`;
+    const url = `https://pixabay.com/api/?key=22966378-58fca9bf9b8bdf03001525418&q=${searchQuery}&pretty=true&per_page=${itemCount}&orientation=horizontal`;
 
     getImages(url, setImgList);
   }, [searchQuery, itemCount]);
@@ -41,6 +43,12 @@ const ContextProvider = ({ children }) => {
         itemCount,
         setItemCount,
         loginStatus,
+        setLoginStatus,
+        getImages,
+        imgPrice,
+        setImgPrice,
+        totalPrice,
+        setTotalPrice,
       }}
     >
       {children}
