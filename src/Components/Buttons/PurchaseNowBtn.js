@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../../Context/Context";
 import { buttonClass } from "./btnClass";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,10 +15,15 @@ const PurchaseNowBtn = () => {
         <button className={`${buttonClass} hover:bg-pink`}>PURCHASE NOW</button>
       )}
       {!loginStatus && (
-        <button className={`${buttonClass} hover:bg-pink`}>
-          {userLockIcon}{" "}
-          <span className="ml-2">SIGN UP OR LOGIN TO PURCHASE NOW</span>
-        </button>
+        <Link
+          className={`${buttonClass} hover:bg-pink text-center`}
+          to="/authPage"
+        >
+          <button>
+            {userLockIcon}{" "}
+            <span className="ml-2">SIGN UP OR LOGIN TO PURCHASE NOW</span>
+          </button>
+        </Link>
       )}
     </React.Fragment>
   );
